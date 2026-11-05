@@ -1,0 +1,283 @@
+:root {
+    --color-white: #dfdfe2;
+    --color-dark-blue: #3A3A70;
+    --color-light-gray: #f4f4f4;
+    --color-purple: blueviolet;
+    --color-gray-text: #a0a0b0;
+    --color-box-bg: #2a2a40;
+    --color-border-line: #3b3b4f;
+    --color-icon: #9F5757;
+}
+
+/* --- Global Styles --- */
+body {
+    background-color: var(--color-light-gray); 
+    margin: 0;
+    padding: 20px 0;
+    font-family: 'Lato', sans-serif;
+}
+
+/* --- Shared Container Styles --- */
+header, 
+.main-container {
+    width: 90vw;
+    max-width: 1000px; 
+    margin: 0 auto; 
+    box-sizing: border-box; 
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+/* --- Header Section --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 10px 10px 0 0; 
+}
+
+.my-website {
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+.dev-word {
+    color: var(--color-purple);
+}
+
+.header-links-buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px; 
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+}
+
+.header-link {
+    text-decoration: none;
+    color: var(--color-white);
+    transition: color 0.3s;
+}
+
+.header-link:hover {
+    color: var(--color-purple);
+}
+
+.dark-mode-button {
+    background-color: var(--color-white);
+    color: var(--color-dark-blue);
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- Main Content Section --- */
+.main-container {
+    display: grid;
+    grid-template-columns: 190px 1fr; 
+    grid-template-areas:
+    'my-photo  inside-header'
+    'par par'
+    'skills skills'
+    'footer footer';
+    padding: 20px;
+    font-size: 1rem;
+    border-radius: 0 0 10px 10px;
+}
+
+.my-photo {
+    grid-area: my-photo;
+    border-radius: 50%;
+    width: 150px;
+    margin: 20px;
+    object-fit: cover;
+}
+
+.inside-header {
+    grid-area: inside-header;
+    align-self: center; 
+    padding-left: 20px; 
+}
+
+.my-name {
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+}
+
+.my-role {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-gray-text);
+    font-weight: normal;
+}
+
+.my-describe {
+    grid-area: par;
+    padding: 20px 0;
+    line-height: 1.6;
+    border-top: 1px solid var(--color-box-bg);
+}
+
+/* --- Technical Skills Section --- */
+.technical-skills {
+    grid-area: skills; 
+    padding: 20px 0;
+    border-top: 1px solid var(--color-box-bg);
+}
+
+.skills-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.before-skills-symbol {
+    font-weight: bold;
+    color: var(--color-icon); 
+    margin: 0;
+}
+
+.technical-skills-word {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.my-skills {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+
+.my-skill {
+    border: 1px solid var(--color-white); 
+    padding: 8px 16px; 
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--color-box-bg);
+}
+
+/* --- Experience Section --- */
+.my-experience {
+    grid-area: footer; 
+    padding: 20px 0;
+    border-top: 2px solid var(--color-border-line); 
+    margin-top: 10px;
+}
+
+.experience-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.my-experience-blocks {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+.my-experience-block {
+    background-color: var(--color-box-bg);
+    padding: 20px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+    border: 1px dashed var(--color-border-line);
+}
+
+/* =========================================
+   MEDIA QUERIES (Responsive Design)
+   ========================================= */
+
+/* --- Tablet / Small Laptops (Max Width: 768px) --- */
+@media (max-width: 768px) {
+    header, 
+    .main-container {
+        width: 95vw; 
+    }
+
+    .my-name {
+        font-size: 1.5rem; 
+    }
+
+    .my-role {
+        font-size: 1rem;
+    }
+
+    .header-links-buttons {
+        gap: 15px; 
+    }
+
+    .header-links {
+        gap: 10px; 
+    }
+}
+
+/* --- Mobile Phones (Max Width: 600px) --- */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; 
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .header-links-buttons {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .header-links {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .main-container {
+        grid-template-columns: 1fr; 
+        grid-template-areas:
+        'my-photo'
+        'inside-header'
+        'par'
+        'skills'
+        'footer';
+        text-align: center; 
+    }
+
+    .my-photo {
+        margin: 0 auto 15px auto; 
+    }
+
+    .inside-header {
+        padding-left: 0; 
+    }
+
+    .skills-title,
+    .experience-title {
+        justify-content: center;
+    }
+
+    .my-skills {
+        justify-content: center;
+    }
+
+    .my-experience-blocks {
+        justify-content: center;
+    }
+
+    .my-describe {
+        padding: 15px 0;
+    }
+}

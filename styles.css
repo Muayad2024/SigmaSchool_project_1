@@ -376,3 +376,15 @@ header {
         padding: 15px 0;
     }
 }
+
+/* Style for the image-based icon */
+.social-icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Make the logo white in Dark Mode */
+body.dark-mode .social-icon-img {
+    filter: invert(1) brightness(2);
+}

@@ -136,7 +136,7 @@ header {
     width: 150px;
     height: 150px;       
     object-fit: cover;   
-    object-position: center 20%; 
+    object-position: center 80%; 
     margin: 20px;
     border: 3px solid var(--border-color);
 }
@@ -277,6 +277,7 @@ header {
 .social-card {
     display: flex;
     align-items: center;
+    justify-content: center; /* 👈 Add this line to center the content */
     gap: 12px;
     text-decoration: none;
     background-color: var(--skill-bg);

@@ -1,34 +1,65 @@
+/* =========================================
+   VARIABLES (Light & Dark Mode)
+   ========================================= */
 :root {
-    --color-white: #dfdfe2;
-    --color-dark-blue: #3A3A70;
-    --color-light-gray: #f4f4f4;
-    --color-purple: blueviolet;
-    --color-gray-text: #a0a0b0;
-    --color-box-bg: #2a2a40;
-    --color-border-line: #3b3b4f;
-    --color-icon: #9F5757;
+    /* Light Mode (Default) */
+    --bg-page: #f5f6f7;          
+    --bg-card: #ffffff;          
+    --text-main: #1b1b32;        
+    --text-muted: #3b3b4f;       
+    --border-color: #d0d0d5;     
+    --skill-bg: #f5f6f7;         
+    --skill-border: #d0d0d5;
+    --btn-bg: #1b1b32;
+    --btn-text: #ffffff;
+    --icon-color: #1b1b32;       
 }
 
-/* --- Global Styles --- */
+body.dark-mode {
+    /* Dark Mode Overrides */
+    --bg-page: #1b1b32;          
+    --bg-card: #2a2a40;          
+    --text-main: #f5f6f7;        
+    --text-muted: #d0d0d5;       
+    --border-color: #3b3b4f;     
+    --skill-bg: #1b1b32;         
+    --skill-border: #3b3b4f;
+    --btn-bg: #f5f6f7;
+    --btn-text: #1b1b32;
+    --icon-color: #f5f6f7;       
+}
+
+/* =========================================
+   GLOBAL STYLES
+   ========================================= */
 body {
-    background-color: var(--color-light-gray); 
+    background-color: var(--bg-page); 
+    color: var(--text-main);
     margin: 0;
-    padding: 20px 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* --- Shared Container Styles --- */
+/* =========================================
+   SHARED CONTAINERS (Header & Main)
+   ========================================= */
 header, 
 .main-container {
     width: 90vw;
     max-width: 1000px; 
     margin: 0 auto; 
     box-sizing: border-box; 
-    background-color: var(--color-dark-blue);
-    color: var(--color-white);
+    background-color: var(--bg-card); 
+    color: var(--text-main);
+    transition: background-color 0.3s;
 }
 
-/* --- Header Section --- */
+/* =========================================
+   HEADER SECTION
+   ========================================= */
 header {
     display: flex;
     justify-content: space-between;
@@ -45,7 +76,7 @@ header {
 }
 
 .dev-word {
-    color: var(--color-purple);
+    color: #99c9ff; /* freeCodeCamp Blue */
 }
 
 .header-links-buttons {
@@ -61,33 +92,39 @@ header {
 
 .header-link {
     text-decoration: none;
-    color: var(--color-white);
+    color: var(--text-main);
     transition: color 0.3s;
 }
 
 .header-link:hover {
-    color: var(--color-purple);
+    color: #99c9ff;
 }
 
 .dark-mode-button {
-    background-color: var(--color-white);
-    color: var(--color-dark-blue);
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
     border: none;
     padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    font-family: inherit;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* --- Main Content Section --- */
+/* =========================================
+   MAIN CONTENT SECTION & GRID
+   ========================================= */
 .main-container {
     display: grid;
+    /* Added a new 'socials' area at the bottom */
     grid-template-columns: 190px 1fr; 
     grid-template-areas:
     'my-photo  inside-header'
     'par par'
     'skills skills'
-    'footer footer';
+    'footer footer'
+    'socials socials';
     padding: 20px;
     font-size: 1rem;
     border-radius: 0 0 10px 10px;
@@ -97,8 +134,11 @@ header {
     grid-area: my-photo;
     border-radius: 50%;
     width: 150px;
+    height: 150px;       
+    object-fit: cover;   
+    object-position: center 20%; 
     margin: 20px;
-    object-fit: cover;
+    border: 3px solid var(--border-color);
 }
 
 .inside-header {
@@ -115,7 +155,7 @@ header {
 .my-role {
     margin: 0;
     font-size: 1.2rem;
-    color: var(--color-gray-text);
+    color: var(--text-muted);
     font-weight: normal;
 }
 
@@ -123,14 +163,17 @@ header {
     grid-area: par;
     padding: 20px 0;
     line-height: 1.6;
-    border-top: 1px solid var(--color-box-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
 }
 
-/* --- Technical Skills Section --- */
+/* =========================================
+   TECHNICAL SKILLS SECTION
+   ========================================= */
 .technical-skills {
     grid-area: skills; 
     padding: 20px 0;
-    border-top: 1px solid var(--color-box-bg);
+    border-top: 1px solid var(--border-color);
 }
 
 .skills-title {
@@ -142,7 +185,7 @@ header {
 
 .before-skills-symbol {
     font-weight: bold;
-    color: var(--color-icon); 
+    color: #99c9ff; 
     margin: 0;
 }
 
@@ -159,18 +202,22 @@ header {
 }
 
 .my-skill {
-    border: 1px solid var(--color-white); 
+    border: 1px solid var(--skill-border); 
     padding: 8px 16px; 
     border-radius: 5px;
     text-align: center;
-    background-color: var(--color-box-bg);
+    background-color: var(--skill-bg);
+    color: var(--text-main);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-/* --- Experience Section --- */
+/* =========================================
+   EXPERIENCE SECTION
+   ========================================= */
 .my-experience {
     grid-area: footer; 
     padding: 20px 0;
-    border-top: 2px solid var(--color-border-line); 
+    border-top: 2px solid var(--border-color); 
     margin-top: 10px;
 }
 
@@ -183,6 +230,11 @@ header {
     font-weight: bold;
 }
 
+.experience-title svg {
+    color: var(--icon-color);
+    transition: color 0.3s;
+}
+
 .my-experience-blocks {
     display: flex;
     gap: 20px;
@@ -190,13 +242,65 @@ header {
 }
 
 .my-experience-block {
-    background-color: var(--color-box-bg);
+    background-color: var(--skill-bg);
     padding: 20px;
     border-radius: 8px;
     width: 200px;
     text-align: center;
-    border: 1px dashed var(--color-border-line);
+    border: 1px dashed var(--border-color);
+    color: var(--text-muted);
+    transition: background-color 0.3s, border-color 0.3s;
 }
+
+/* =========================================
+   NEW: SOCIAL LINKS SECTION (Separated Group)
+   ========================================= */
+.my-socials {
+    grid-area: socials; /* Placed perfectly at the bottom */
+    padding: 25px 0 10px 0;
+    border-top: 2px solid var(--border-color);
+    margin-top: 10px;
+}
+
+.socials-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.socials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Auto fits nicely without stretching weirdly */
+    gap: 20px;
+}
+
+.social-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    background-color: var(--skill-bg);
+    color: var(--text-main);
+    border: 1px solid var(--skill-border);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.social-card:hover {
+    background-color: #99c9ff; 
+    color: #1b1b32;
+    border-color: #99c9ff;
+    transform: translateY(-3px); 
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor; 
+}
+
 
 /* =========================================
    MEDIA QUERIES (Responsive Design)
@@ -204,23 +308,18 @@ header {
 
 /* --- Tablet / Small Laptops (Max Width: 768px) --- */
 @media (max-width: 768px) {
-    header, 
-    .main-container {
+    header, .main-container {
         width: 95vw; 
     }
-
     .my-name {
         font-size: 1.5rem; 
     }
-
     .my-role {
         font-size: 1rem;
     }
-
     .header-links-buttons {
         gap: 15px; 
     }
-
     .header-links {
         gap: 10px; 
     }
@@ -233,18 +332,15 @@ header {
         gap: 15px;
         padding: 15px;
     }
-
     .header-links-buttons {
         flex-direction: column;
         gap: 15px;
         width: 100%;
     }
-
     .header-links {
         justify-content: center;
         width: 100%;
     }
-
     .main-container {
         grid-template-columns: 1fr; 
         grid-template-areas:
@@ -252,31 +348,30 @@ header {
         'inside-header'
         'par'
         'skills'
-        'footer';
+        'footer'
+        'socials'; /* Added here for mobile layout */
         text-align: center; 
     }
-
     .my-photo {
         margin: 0 auto 15px auto; 
     }
-
     .inside-header {
         padding-left: 0; 
     }
-
-    .skills-title,
-    .experience-title {
+    .skills-title, 
+    .experience-title, 
+    .socials-title { /* Centered the new title */
+        justify-content: center;
+        text-align: center;
+    }
+    .my-skills, 
+    .my-experience-blocks,
+    .socials-grid { /* Centered the new links */
         justify-content: center;
     }
-
-    .my-skills {
-        justify-content: center;
+    .socials-grid {
+        grid-template-columns: 1fr; /* Stack buttons on mobile */
     }
-
-    .my-experience-blocks {
-        justify-content: center;
-    }
-
     .my-describe {
         padding: 15px 0;
     }

@@ -65,7 +65,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 20px;
+    padding: 30px 30px;
     border-radius: 10px 10px 0 0; 
     font-size: 1.4rem;
 }
@@ -146,7 +146,7 @@ header {
 .inside-header {
     grid-area: inside-header;
     align-self: center; 
-    padding-left: 80px; 
+    padding-left: 100px; 
 }
 
 .my-name {
@@ -163,7 +163,7 @@ header {
 
 .my-describe {
     grid-area: par;
-    padding: 20px 0;
+    padding: 20px 15px;
     line-height: 1.6;
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
@@ -203,14 +203,29 @@ header {
     gap: 15px;
 }
 
+/* Skill links — styled like .social-card */
 .my-skill {
-    border: 1px solid var(--skill-border); 
-    padding: 8px 16px; 
-    border-radius: 5px;
-    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-decoration: none;              /* remove underline */
+    color: var(--text-main);            /* remove default blue */
     background-color: var(--skill-bg);
-    color: var(--text-main);
-    transition: background-color 0.3s, border-color 0.3s;
+    border: 1px solid var(--skill-border);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.my-skill:hover {
+    background-color: #99c9ff;
+    color: #1b1b32;
+    border-color: #99c9ff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* =========================================

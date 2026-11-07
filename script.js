@@ -22,3 +22,21 @@ darkModeButton.addEventListener('click', () => {
         localStorage.setItem('theme', 'light');
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('toggle-experience');
+    const experienceBlocks = document.getElementById('my-experience-blocks');
+
+    if (toggleBtn && experienceBlocks) {
+        toggleBtn.addEventListener('click', () => {
+            const isHidden = experienceBlocks.classList.toggle('hidden');
+            
+            // Update button text based on state
+            if (isHidden) {
+                toggleBtn.textContent = 'Show';
+            } else {
+                toggleBtn.textContent = 'Hide';
+            }
+        });
+    }
+});

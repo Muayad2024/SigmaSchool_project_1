@@ -1,3 +1,8 @@
+//alert
+const myName = "Muayad";
+let greeting = `Welcome to ${myName}'s portfolio website`;
+alert(greeting);
+
 // Select the button
 const darkModeButton = document.querySelector('.dark-mode-button');
 
